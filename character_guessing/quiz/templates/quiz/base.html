@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website Title{% endblock %}</title>
+    <!-- Подключение стилей или добавление ссылок на сторонние библиотеки стилей -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="{% url 'quiz' %}">Home</a></li>
+        <!-- Добавьте другие ссылки на страницы, если необходимо -->
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'change_password' %}">Change Password</a></li>
+            <!-- Добавьте другие ссылки в профиль пользователя -->
+        {% else %}
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <!-- Добавьте другие ссылки для неаутентифицированных пользователей -->
+        {% endif %}
+    </ul>
+</nav>
+
+<div>
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Добавьте другие элементы или скрипты, если необходимо -->
+
+</body>
+</html>

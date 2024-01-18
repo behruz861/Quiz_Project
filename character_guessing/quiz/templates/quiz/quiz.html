@@ -1,0 +1,21 @@
+<form method="POST" action="{% url 'quiz' %}">
+    {% csrf_token %}
+    <input type="hidden" name="question_id" value="{{ question.id }}">
+    <label>
+        <input type="radio" name="user_answer" value="{{ question.option1 }}">
+        {{ question.option1 }}
+    </label>
+    <label>
+        <input type="radio" name="user_answer" value="{{ question.option2 }}">
+        {{ question.option2 }}
+    </label>
+    <label>
+        <input type="radio" name="user_answer" value="{{ question.option3 }}">
+        {{ question.option3 }}
+    </label>
+    <label>
+        <input type="radio" name="user_answer" value="{{ question.option4 }}">
+        {{ question.option4 }}
+    </label>
+    <button type="submit" name="submit_answer" class="btn btn-primary">Submit Answer</button>
+</form>

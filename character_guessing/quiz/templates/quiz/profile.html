@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+    <div>
+        <h2>User Profile</h2>
+
+        {% if stats %}
+            <p>Total Tests: {{ stats.total_tests }}</p>
+            <p>Correct Answers: {{ stats.total_correct_answers }}</p>
+            <p>Incorrect Answers: {{ stats.total_incorrect_answers }}</p>
+            <p>Perfect Tests: {{ stats.perfect_tests }}</p>
+            <p>Success Percentage: {{ stats.success_percentage }}</p>
+        {% else %}
+            <p>No statistics available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
